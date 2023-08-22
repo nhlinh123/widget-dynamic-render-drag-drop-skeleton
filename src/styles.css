@@ -1,0 +1,8 @@
+/* Add application styles & imports to this file! */
+@import url('https://unpkg.com/bootstrap/dist/css/bootstrap.min.css');
+
+.card {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
