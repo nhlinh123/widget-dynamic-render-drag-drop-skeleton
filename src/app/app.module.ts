@@ -28,6 +28,7 @@ import { WidgetGeneratorComponent } from './components/widget-generator';
 import { SkeletonPictureComponent } from './components/skeleton-picture/skeleton-picture.component';
 import { SkeletonLineComponent } from './components/skeleton-line/skeleton-line.component';
 import { SkeletonRoundComponent } from './components/skeleton-round/skeleton-round.component';
+import { DragDropGeneratorComponent } from './components/drag-drop-generator.component';
 
 @NgModule({
   imports: [BrowserModule, DragDropModule],
@@ -50,7 +51,8 @@ import { SkeletonRoundComponent } from './components/skeleton-round/skeleton-rou
     WidgetGeneratorComponent,
     SkeletonPictureComponent,
     SkeletonLineComponent,
-    SkeletonRoundComponent
+    SkeletonRoundComponent,
+    DragDropGeneratorComponent
   ],
   providers: [DashboardService],
   bootstrap: [AppComponent],

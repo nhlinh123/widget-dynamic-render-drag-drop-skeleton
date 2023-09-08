@@ -9,21 +9,9 @@
   </div>
 </div>
 
-<div class="container mt-3 mb-3">
-  <div class="grid-container" cdkDropList (cdkDropListDropped)="onDrop($event)">
-    <ng-container *ngFor="let widgetPos of dashboardComponents$ | async">
-      <app-widget-generator
-        [class]="{ customizable: isCustomizing }"
-        [widgetName]="widgetPos.name"
-        [config]="getComponentConfig(widgetPos.name)"
-        [cdkDragDisabled]="!isCustomizing"
-        (cdkDragStarted)="onDrag($event)"
-        cdkDrag
-      ></app-widget-generator>
-    </ng-container>
-  </div>
-</div>
-
-<app-skeleton-line></app-skeleton-line>
-<app-skeleton-round></app-skeleton-round>
-<app-skeleton-picture></app-skeleton-picture>
+<app-drag-drop-generator
+  [widgetList]="dashboardComponents"
+  [isCustomizing]="isCustomizing"
+  (dragEvent)="onDrag($event)"
+  (dropEvent)="onDrop($event)"
+></app-drag-drop-generator>

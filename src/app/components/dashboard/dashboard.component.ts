@@ -18,7 +18,7 @@ export class DashboardComponent
   extends BaseDragDropComponent
   implements OnInit
 {
-  dashboardComponents$: Observable<ComponentSizes[]>;
+  dashboardComponents: ComponentSizes[];
   isCustomizing = false;
 
   constructor(
@@ -30,7 +30,7 @@ export class DashboardComponent
   }
 
   ngOnInit() {
-    this.dashboardComponents$ = this.dashboardService
+    this.dashboardService
       .getDashBoardComponents()
       .pipe(
         tap((widgetPositions) => {
@@ -51,17 +51,11 @@ export class DashboardComponent
               );
             }
           });
+
+          return widgetPositions;
         })
-      );
-  }
-
-  getComponentType(name: string): Type<any> {
-    const widgetMeta = LIST_WIDGET.find((w) => w.name === name);
-    return widgetMeta ? widgetMeta.component : null;
-  }
-
-  getComponentConfig(name: string): WidgetConfig {
-    return this.widgetService.getConfig(name);
+      )
+      .subscribe((res) => (this.dashboardComponents = res));
   }
 
   toggleCustomizeMode() {
