@@ -51,7 +51,6 @@ export class DashboardComponent
               );
             }
           });
-
           return widgetPositions;
         })
       )
